@@ -1,0 +1,12 @@
+FROM ubuntu
+WORKDIR '/app' 
+RUN apt-get update -y
+RUN apt-get install -y wget
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt-get install tzdata -y
+RUN apt install ./google-chrome-stable_current_amd64.deb -y
+RUN apt-get install -y unzip curl gnupg xvfb libxi6 libgconf-2-4
+RUN apt-get install -y default-jdk
+COPY . .
+RUN bash chromedriver.sh
+
