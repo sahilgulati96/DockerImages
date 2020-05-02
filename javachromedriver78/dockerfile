@@ -1,0 +1,15 @@
+FROM ubuntu
+WORKDIR '/app'
+RUN apt-get update -y
+RUN apt-get install -y wget
+RUN wget https://www.slimjet.com/chrome/download-chrome.php?file=files%2F78.0.3904.97%2Fgoogle-chrome-stable_current_amd64.deb
+RUN apt-get install tzdata -y
+RUN apt install ./download-chrome.php?file=files%2F78.0.3904.97%2Fgoogle-chrome-stable_current_amd64.deb -y
+RUN apt-get install -y unzip gnupg xvfb libxi6 libgconf-2-4
+RUN apt install openjdk-8-jre -y
+COPY . .
+RUN bash chromedriver.sh
+
+
+#CMD google-chrome --no-sandbox
+#docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw"
