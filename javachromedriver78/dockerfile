@@ -12,4 +12,4 @@ RUN bash chromedriver.sh
 
 
 #CMD google-chrome --no-sandbox
-#docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw"
+#docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" 4c3633b76f60

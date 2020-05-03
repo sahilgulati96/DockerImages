@@ -1,0 +1,10 @@
+FROM ubuntu
+WORKDIR '/app' 
+RUN apt update -y
+RUN apt install -y wget
+RUN apt-get install tzdata -y
+RUN apt install firefox -y
+RUN apt-get install -y unzip gnupg xvfb libxi6 libgconf-2-4
+RUN apt install openjdk-8-jre -y
+COPY . .
+RUN bash firefoxdriver.sh
